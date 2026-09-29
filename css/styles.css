@@ -1,0 +1,167 @@
+/* General page styling */
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f7fb;
+    color: #222;
+}
+/* Header */
+header {
+    text-align: center;
+    background-color: #183b56;
+    color: white;
+    padding: 2rem 1rem;
+}
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+header p {
+    margin-bottom: 0;
+}
+/* Navigation */
+nav {
+    background-color: #102a43;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px;
+}
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 9px 12px;
+    border-radius: 5px;
+Page 6
+}
+nav a:hover,
+nav a:focus {
+    background-color: #2f80a8;
+}
+/* Main content */
+main {
+    width: min(100% - 2rem, 1000px);
+    margin: auto;
+}
+.content-section {
+    background-color: white;
+    padding: 1.4rem;
+    margin: 1.2rem 0;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+}
+#hobbies {
+    background-color: #eef6fb;
+}
+h2 {
+    color: #183b56;
+    margin-top: 0;
+}
+/* Photo gallery */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+figure {
+    margin: 0;
+}
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 6px;
+}
+figcaption {
+}
+    padding-top: 6px;
+    font-size: 0.9rem;
+/* Media */
+video,
+audio {
+    max-width: 100%;
+    width: 100%;
+    margin-bottom: 10px;
+}
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+caption {
+    font-weight: bold;
+    padding: 8px;
+}
+th,
+td {
+    border: 1px solid #9aa7b3;
+    padding: 9px;
+    text-align: left;
+}
+th {
+    background-color: #e9eef5;
+}
+/* Form */
+form {
+    display: grid;
+    gap: 8px;
+}
+input,
+select,
+textarea,
+button {
+    width: 100%;
+    padding: 10px;
+    font: inherit;
+}
+input,
+select,
+textarea {
+    border: 1px solid #9aa7b3;
+    border-radius: 4px;
+}
+button {
+    border: none;
+    border-radius: 5px;
+    background-color: #183b56;
+    color: white;
+    cursor: pointer;
+}
+button:hover,
+button:focus {
+    background-color: #2f80a8;
+}
+.note {
+    font-size: 0.9rem;
+    color: #555;
+}
+/* Footer */
+footer {
+    text-align: center;
+    background-color: #102a43;
+    color: white;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+/* Mobile layout */
+@media (max-width: 700px) {
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+    header h1 {
+        font-size: 1.5rem;
+    }
+    nav {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    nav a {
+}
+    }
+        text-align: center;

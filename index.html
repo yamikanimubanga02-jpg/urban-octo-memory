@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yamikani Mubanga - My Student Website</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to My Student Website</h1>
+        <p>ICT251 Web Technologies</p>
+    </header>
+    <nav>
+        <a href="#about">About Me</a>
+        <a href="#hobbies">Hobbies</a>
+        <a href="#learning">Learning Plan</a>
+        <a href="#photos">My Photos</a>
+        <a href="#media">My Media</a>
+        <a href="#contact">Contact</a>
+        <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development" target="_blank">Learn Web
+            Development</a>
+    </nav>
+    <main>
+        <section id="about" class="content-section">
+            <h2>About Me</h2>
+            <p>
+                My name is Yamikani Mubanga and I am a Computer Science student at
+                Mulungushi University. I am currently learning Web Technologies and
+                developing my understanding of HTML and CSS. I enjoy programming and
+                problem solving because they help me think logically and find solutions
+                to different challenges. I also enjoy playing chess and reading science
+                fiction. My goal is to continue improving my web development skills and
+                become more confident in creating useful and attractive websites.
+            </p>
+        </section>
+        <section id="hobbies" class="content-section">
+            <h2>My Hobbies</h2>
+            <ul>
+                <li>Programming and Problem Solving</li>
+                <li>Playing Chess</li>
+                <li>Reading Science Fiction</li>
+            </ul>
+        </section>
+        <section id="learning" class="content-section">
+            <h2>My Learning Plan</h2>
+            <p>My steps for improving my web development skills are:</p>
+            <ol>
+                <li>Practice HTML structure and semantic elements regularly.</li>
+                <li>Learn CSS layouts, responsive design and basic styling techniques.</li>
+                <li>Build small websites and test them using VS Code and Live Server.</li>
+                <li>Learn basic JavaScript after becoming comfortable with HTML and CSS.</li>
+            </ol>
+            <table>
+                <caption>Weekly Web Learning Plan</caption>
+                <tr>
+                    <th>Day</th>
+                    <th>Topic</th>
+                    <th>Practice Task</th>
+                </tr>
+                <tr>
+                    <td>Monday</td>
+                    <td>HTML</td>
+                    <td>Create and structure a simple web page.</td>
+                </tr>
+                <tr>
+                    <td>Wednesday</td>
+                    <td>CSS</td>
+                    <td>Style sections, links, images and forms.</td>
+                </tr>
+                <tr>
+                    <td>Friday</td>
+                    <td>Responsive Design</td>
+                    <td>Test a website on a narrow screen.</td>
+                </tr>
+                <tr>
+                    <td>Saturday</td>
+                    <td>Practice Project</td>
+                    <td>Build and test a small personal website.</td>
+                </tr>
+            </table>
+        </section>
+        <section id="photos" class="content-section">
+            <h2>My Photos</h2>
+            <div class="gallery">
+                <figure>
+                    <img src="images/photo1.jpg" alt="Yamikani working on a computer">
+                    <figcaption>Working on my computer and practising web development.</figcaption>
+                </figure>
+                <figure>
+                    <img src="images/photo2.jpg" alt="A photo representing university student life">
+                    <figcaption>A moment from my student life.</figcaption>
+                </figure>
+                <figure>
+                    <img src="images/photo3.jpg" alt="A personal photo of Yamikani">
+                    <figcaption>A personal photo for my student website.</figcaption>
+                </figure>
+            </div>
+            </p>
+        </section>
+        <section id="media" class="content-section">
+            <h2>My Media</h2>
+            <h3>My Introduction Video</h3>
+            <video controls>
+                <source src="videos/intro.mp4" type="video/mp4">
+                Your browser does not support the video element.
+            </video>
+            <p>
+                <strong>Video summary:</strong> In this short introduction, I say my name,
+                identify myself as a Computer Science student and explain that I hope to
+                improve my web development skills.
+            </p>
+            <h3>My Audio Clip</h3>
+            <audio controls>
+                <source src="videos/voice.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            <p>
+                This recording describes one of my hobbies and explains why I am interested
+                in studying web technologies.
+            </p>
+        </section>
+        <section id="contact" class="content-section">
+            <h2>Contact Me</h2>
+            <form action="#" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="topic">Topic:</label>
+                <select id="topic" name="topic">
+                    <option value="web">Web Development</option>
+                    <option value="school">School Work</option>
+                    <option value="other">Other</option>
+                </select>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+            <p class="note">
+                This contact form is a browser demonstration only. It does not send or
+                store the submitted information.
+            </p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2026 Yamikani Mubanga | ICT251 Web Technologies</p>
+    </footer>
+</body>
+
+</html>m
