@@ -6,25 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yamikani Mubanga - My Student Website</title>
     <link rel="stylesheet" href="css/styles.css">
+    <script src="js/script.js" defer></script>
 </head>
 
 <body>
     <header>
-        <h1>Welcome to My Student Website</h1>
-        <p>ICT251 Web Technologies</p>
+        <div class="header-container">
+            <h1>Welcome to My Student Website</h1>
+            <p>ICT251 Web Technologies</p>
+            <button id="theme-toggle-btn" aria-label="Toggle Light and Dark Mode">🌙 Dark Theme</button>
+            <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle navigation menu">☰ Menu</button>
+        </div>
+        <nav id="navbar" class="nav-links">
+            <ul>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#hobbies">Hobbies</a></li>
+                <li><a href="#learning">Learning Plan</a></li>
+                <li><a href="#skills">Projects & Skills</a></li>
+                <li><a href="#photos">My Photos</a></li>
+                <li><a href="#media">My Media</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="https://developer.mozilla.org/en-US/docs/Learn_web_development" target="_blank"
+                        rel="noopener">Learn Web Development</a></li>
+            </ul>
+        </nav>
     </header>
-    <nav>
-        <a href="#about">About Me</a>
-        <a href="#hobbies">Hobbies</a>
-        <a href="#learning">Learning Plan</a>
-        <a href="#photos">My Photos</a>
-        <a href="#media">My Media</a>
-        <a href="#contact">Contact</a>
-        <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development" target="_blank">Learn Web
-            Development</a>
-    </nav>
+
     <main>
-        <section id="about" class="content-section">
+        <section id="about" class="content-section card">
             <h2>About Me</h2>
             <p>
                 My name is Yamikani Mubanga and I am a Computer Science student at
@@ -36,7 +45,8 @@
                 become more confident in creating useful and attractive websites.
             </p>
         </section>
-        <section id="hobbies" class="content-section">
+
+        <section id="hobbies" class="content-section card">
             <h2>My Hobbies</h2>
             <ul>
                 <li>Programming and Problem Solving</li>
@@ -44,7 +54,8 @@
                 <li>Reading Science Fiction</li>
             </ul>
         </section>
-        <section id="learning" class="content-section">
+
+        <section id="learning" class="content-section card">
             <h2>My Learning Plan</h2>
             <p>My steps for improving my web development skills are:</p>
             <ol>
@@ -53,57 +64,84 @@
                 <li>Build small websites and test them using VS Code and Live Server.</li>
                 <li>Learn basic JavaScript after becoming comfortable with HTML and CSS.</li>
             </ol>
-            <table>
-                <caption>Weekly Web Learning Plan</caption>
-                <tr>
-                    <th>Day</th>
-                    <th>Topic</th>
-                    <th>Practice Task</th>
-                </tr>
-                <tr>
-                    <td>Monday</td>
-                    <td>HTML</td>
-                    <td>Create and structure a simple web page.</td>
-                </tr>
-                <tr>
-                    <td>Wednesday</td>
-                    <td>CSS</td>
-                    <td>Style sections, links, images and forms.</td>
-                </tr>
-                <tr>
-                    <td>Friday</td>
-                    <td>Responsive Design</td>
-                    <td>Test a website on a narrow screen.</td>
-                </tr>
-                <tr>
-                    <td>Saturday</td>
-                    <td>Practice Project</td>
-                    <td>Build and test a small personal website.</td>
-                </tr>
-            </table>
-        </section>
-        <section id="photos" class="content-section">
-            <h2>My Photos</h2>
-            <div class="gallery">
-                <figure>
-                    <img src="images/photo1.jpg" alt="Yamikani working on a computer">
-                    <figcaption>Working on my computer and practising web development.</figcaption>
-                </figure>
-                <figure>
-                    <img src="images/photo2.jpg" alt="A photo representing university student life">
-                    <figcaption>A moment from my student life.</figcaption>
-                </figure>
-                <figure>
-                    <img src="images/photo3.jpg" alt="A personal photo of Yamikani">
-                    <figcaption>A personal photo for my student website.</figcaption>
-                </figure>
+            <div class="table-wrapper">
+                <table>
+                    <caption>Weekly Web Learning Plan</caption>
+                    <thead>
+                        <tr>
+                            <th>Day</th>
+                            <th>Topic</th>
+                            <th>Practice Task</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Monday</td>
+                            <td>HTML</td>
+                            <td>Create and structure a simple web page.</td>
+                        </tr>
+                        <tr>
+                            <td>Wednesday</td>
+                            <td>CSS</td>
+                            <td>Style sections, links, images and forms.</td>
+                        </tr>
+                        <tr>
+                            <td>Friday</td>
+                            <td>Responsive Design</td>
+                            <td>Test a website on a narrow screen.</td>
+                        </tr>
+                        <tr>
+                            <td>Saturday</td>
+                            <td>Practice Project</td>
+                            <td>Build and test a small personal website.</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            </p>
         </section>
-        <section id="media" class="content-section">
+
+        <!-- Added Projects & Skills Section -->
+        <section id="skills" class="content-section card">
+            <h2>Projects & Skills</h2>
+            <div class="grid-container">
+                <div class="project-card">
+                    <h3>Interactive Personal Website</h3>
+                    <p>Enhanced semantic HTML5 website featuring responsive CSS layouts, theme switching, and local form
+                        validation.</p>
+                </div>
+                <div class="project-card">
+                    <h3>Java Programming & OOP</h3>
+                    <p>Designed structured console applications applying OOP principles, control flow, and exception
+                        handling.</p>
+                </div>
+                <div class="project-card">
+                    <h3>Calculus & Problem Solving</h3>
+                    <p>Applied analytical mathematical logic, limits, derivatives, and algorithmic efficiency analysis.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Added Interactive Photo Gallery Controls -->
+        <section id="photos" class="content-section card">
+            <h2>My Photos</h2>
+            <div class="gallery-container">
+                <div class="gallery-frame">
+                    <img id="gallery-img" src="images/photo1.jpg" alt="Yamikani working on a computer">
+                    <p id="gallery-caption" class="caption">Working on my computer and practising web development.</p>
+                </div>
+                <div class="gallery-controls">
+                    <button id="prev-photo-btn" class="btn btn-secondary">← Previous</button>
+                    <span id="photo-counter">Photo 1 of 3</span>
+                    <button id="next-photo-btn" class="btn btn-secondary">Next →</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="media" class="content-section card">
             <h2>My Media</h2>
             <h3>My Introduction Video</h3>
-            <video controls>
+            <video controls width="100%">
                 <source src="videos/intro.mp4" type="video/mp4">
                 Your browser does not support the video element.
             </video>
@@ -122,32 +160,52 @@
                 in studying web technologies.
             </p>
         </section>
-        <section id="contact" class="content-section">
+
+        <!-- Fixed Form & Added Preview Container -->
+        <section id="contact" class="content-section card">
             <h2>Contact Me</h2>
-            <form action="#" method="post">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                <label for="topic">Topic:</label>
-                <select id="topic" name="topic">
-                    <option value="web">Web Development</option>
-                    <option value="school">School Work</option>
-                    <option value="other">Other</option>
-                </select>
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
-                <button type="submit">Send Message</button>
+            <p class="disclaimer">Browser demonstration only — no message is sent.</p>
+
+            <form id="contact-form" novalidate>
+                <div class="form-group">
+                    <label for="full-name">Name:</label>
+                    <input type="text" id="full-name" name="name" required>
+                    <span id="name-error" class="error-msg"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="email-address">Email:</label>
+                    <input type="email" id="email-address" name="email" required>
+                    <span id="email-error" class="error-msg"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="topic">Topic:</label>
+                    <select id="topic" name="topic">
+                        <option value="web">Web Development</option>
+                        <option value="school">School Work</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                    <span id="message-error" class="error-msg"></span>
+                </div>
+
+                <button type="submit" class="btn">Send Message</button>
             </form>
-            <p class="note">
-                This contact form is a browser demonstration only. It does not send or
-                store the submitted information.
-            </p>
+
+            <div id="form-preview" class="form-preview-box hidden" aria-live="polite"></div>
         </section>
     </main>
+
     <footer>
         <p>&copy; 2026 Yamikani Mubanga | ICT251 Web Technologies</p>
+        <p><a id="github-link" href="https://github.com/YOUR-USERNAME/YOUR-REPO" target="_blank" rel="noopener">View
+                Source on GitHub</a></p>
     </footer>
 </body>
 
-</html>m
+</html>

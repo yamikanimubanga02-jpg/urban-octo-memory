@@ -1,167 +1,575 @@
-/* General page styling */
+/* ==========================================================================
+   1. CSS VARIABLES (Theme Palette & Typography)
+   ========================================================================== */
+:root {
+    /* Color Palette - Light Mode */
+    --primary-color: #1e3a8a;
+    /* Deep Navy Blue */
+    --primary-hover: #1d4ed8;
+    /* Medium Blue */
+    --accent-color: #0d9488;
+    /* Dark Teal */
+    --bg-main: #f8fafc;
+    /* Slate Light Background */
+    --card-bg: #ffffff;
+    /* Crisp White Card Background */
+    --text-main: #0f172a;
+    /* Dark Slate Text */
+    --text-muted: #475569;
+    /* Medium Gray Subtext */
+    --border-color: #e2e8f0;
+    /* Light Gray Border */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+
+    /* Validation Colors */
+    --error-color: #dc2626;
+    --error-bg: #fef2f2;
+    --success-bg: #f0fdf4;
+    --success-border: #16a34a;
+
+    /* Typography & Spacing */
+    --font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --border-radius: 12px;
+    --transition-speed: 0.25s ease-in-out;
+}
+
+/* Dark Mode Overrides */
+[data-theme="dark"] {
+    --primary-color: #60a5fa;
+    --primary-hover: #93c5fd;
+    --accent-color: #2dd4bf;
+    --bg-main: #0f172a;
+    --card-bg: #1e293b;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --border-color: #334155;
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+
+    --error-color: #f87171;
+    --error-bg: #450a0a;
+    --success-bg: #052e16;
+    --success-border: #22c55e;
+}
+
+/* ==========================================================================
+   2. BASE & RESET STYLES
+   ========================================================================== */
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: 1.6;
-    background-color: #f4f7fb;
-    color: #222;
+    font-family: var(--font-family);
+    line-height: 1.65;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    transition: background-color var(--transition-speed), color var(--transition-speed);
 }
-/* Header */
+
+/* Accessibility Focus States */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 3px;
+}
+
+/* ==========================================================================
+   3. HEADER & STICKY NAVIGATION
+   ========================================================================== */
 header {
-    text-align: center;
-    background-color: #183b56;
-    color: white;
-    padding: 2rem 1rem;
+    background-color: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow-sm);
+    transition: background-color var(--transition-speed);
 }
-header h1 {
-    margin: 0;
-    font-size: 2rem;
-}
-header p {
-    margin-bottom: 0;
-}
-/* Navigation */
-nav {
-    background-color: #102a43;
+
+.header-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px;
-    padding: 10px;
-}
-nav a {
-    color: white;
-    text-decoration: none;
-    padding: 9px 12px;
-    border-radius: 5px;
-Page 6
-}
-nav a:hover,
-nav a:focus {
-    background-color: #2f80a8;
-}
-/* Main content */
-main {
-    width: min(100% - 2rem, 1000px);
-    margin: auto;
-}
-.content-section {
-    background-color: white;
-    padding: 1.4rem;
-    margin: 1.2rem 0;
-    border: 1px solid #cbd5e1;
-    border-radius: 8px;
-}
-#hobbies {
-    background-color: #eef6fb;
-}
-h2 {
-    color: #183b56;
-    margin-top: 0;
-}
-/* Photo gallery */
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    justify-content: space-between;
     gap: 1rem;
 }
-figure {
-    margin: 0;
+
+h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    letter-spacing: -0.02em;
 }
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 6px;
+
+.subtitle {
+    font-size: 0.875rem;
+    color: var(--text-muted);
 }
-figcaption {
+
+/* Header Buttons */
+#theme-toggle-btn,
+.mobile-menu-btn {
+    background-color: var(--bg-main);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    padding: 0.5rem 0.9rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all var(--transition-speed);
 }
-    padding-top: 6px;
+
+#theme-toggle-btn:hover,
+.mobile-menu-btn:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+/* Navigation Links */
+nav.nav-links {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 0.5rem;
+    overflow-x: auto;
+}
+
+nav a {
+    color: var(--text-main);
+    text-decoration: none;
     font-size: 0.9rem;
-/* Media */
-video,
-audio {
-    max-width: 100%;
-    width: 100%;
-    margin-bottom: 10px;
+    font-weight: 500;
+    padding: 0.75rem 0.85rem;
+    display: inline-block;
+    border-bottom: 2px solid transparent;
+    transition: all var(--transition-speed);
 }
-/* Table */
+
+nav a:hover {
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
+}
+
+.mobile-menu-btn {
+    display: none;
+    /* Hidden on desktop */
+}
+
+/* ==========================================================================
+   4. MAIN CONTENT & CARDS (Box Model Application)
+   ========================================================================== */
+main {
+    max-width: 1000px;
+    margin: 2.5rem auto;
+    padding: 0 1.25rem;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-md);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.card:hover {
+    box-shadow: var(--shadow-lg);
+}
+
+h2 {
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    margin-bottom: 1.25rem;
+    position: relative;
+    padding-bottom: 0.4rem;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 45px;
+    height: 3px;
+    background-color: var(--accent-color);
+    border-radius: 2px;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, var(--card-bg) 0%, var(--bg-main) 100%);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 3.5rem 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-md);
+}
+
+.hero-content h2 {
+    font-size: 2rem;
+}
+
+.hero-content h2::after {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    max-width: 650px;
+    margin: 1rem auto 1.5rem auto;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    padding: 0.7rem 1.5rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+}
+
+.btn:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--bg-main);
+    border-color: var(--text-muted);
+}
+
+/* ==========================================================================
+   5. LISTS & TABLES
+   ========================================================================== */
+ul.hobby-list,
+ol.plan-steps {
+    padding-left: 1.25rem;
+}
+
+ul.hobby-list li,
+ol.plan-steps li {
+    margin-bottom: 0.75rem;
+    color: var(--text-main);
+}
+
+.table-wrapper {
+    overflow-x: auto;
+    margin-top: 1.25rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 1rem;
+    font-size: 0.95rem;
 }
-caption {
-    font-weight: bold;
-    padding: 8px;
-}
+
 th,
 td {
-    border: 1px solid #9aa7b3;
-    padding: 9px;
+    padding: 0.85rem 1rem;
     text-align: left;
+    border-bottom: 1px solid var(--border-color);
 }
+
 th {
-    background-color: #e9eef5;
+    background-color: var(--bg-main);
+    color: var(--primary-color);
+    font-weight: 600;
 }
-/* Form */
-form {
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+/* ==========================================================================
+   6. PROJECTS & SKILLS GRID
+   ========================================================================== */
+.grid-container {
     display: grid;
-    gap: 8px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.25rem;
+    margin-top: 1.25rem;
 }
-input,
-select,
-textarea,
-button {
-    width: 100%;
-    padding: 10px;
-    font: inherit;
+
+.project-card {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.25rem;
+    background-color: var(--bg-main);
+    transition: transform var(--transition-speed), border-color var(--transition-speed);
 }
-input,
-select,
-textarea {
-    border: 1px solid #9aa7b3;
-    border-radius: 4px;
+
+.project-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent-color);
 }
-button {
-    border: none;
-    border-radius: 5px;
-    background-color: #183b56;
-    color: white;
-    cursor: pointer;
+
+.project-card h3 {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
 }
-button:hover,
-button:focus {
-    background-color: #2f80a8;
-}
-.note {
+
+.project-card p {
     font-size: 0.9rem;
-    color: #555;
+    color: var(--text-muted);
 }
-/* Footer */
+
+/* ==========================================================================
+   7. GALLERY VIEWER SECTION
+   ========================================================================== */
+.gallery-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gallery-frame {
+    width: 100%;
+    max-width: 650px;
+    text-align: center;
+}
+
+.gallery-frame img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+}
+
+.caption {
+    font-size: 0.925rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-top: 0.6rem;
+}
+
+.gallery-controls {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 1.25rem;
+}
+
+#photo-counter {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+/* ==========================================================================
+   8. MEDIA SECTION
+   ========================================================================== */
+.media-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.media-item {
+    background-color: var(--bg-main);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.25rem;
+}
+
+.media-item video,
+.media-item audio {
+    width: 100%;
+    border-radius: 6px;
+    margin: 0.75rem 0;
+}
+
+.summary {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+}
+
+/* ==========================================================================
+   9. CONTACT FORM & PREVIEW
+   ========================================================================== */
+.disclaimer {
+    font-size: 0.875rem;
+    color: var(--accent-color);
+    margin-bottom: 1.25rem;
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+    color: var(--text-main);
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: border-color var(--transition-speed);
+}
+
+input:focus,
+textarea:focus {
+    border-color: var(--primary-color);
+    background-color: var(--card-bg);
+}
+
+.error-msg {
+    color: var(--error-color);
+    font-size: 0.825rem;
+    font-weight: 500;
+    display: block;
+    margin-top: 0.3rem;
+}
+
+.form-preview-box {
+    margin-top: 1.5rem;
+    padding: 1.25rem;
+    border-radius: 8px;
+    background-color: var(--success-bg);
+    border: 1px solid var(--success-border);
+}
+
+.form-preview-box h3 {
+    font-size: 1.1rem;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+}
+
+.form-preview-box p {
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+}
+
+.hidden {
+    display: none;
+}
+
+/* ==========================================================================
+   10. FOOTER
+   ========================================================================== */
 footer {
     text-align: center;
-    background-color: #102a43;
-    color: white;
-    padding: 1rem;
-    margin-top: 2rem;
+    padding: 2.5rem 1rem;
+    background-color: var(--card-bg);
+    border-top: 1px solid var(--border-color);
+    font-size: 0.9rem;
+    color: var(--text-muted);
 }
-/* Mobile layout */
-@media (max-width: 700px) {
-    .gallery {
-        grid-template-columns: 1fr;
+
+footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   11. RESPONSIVE MEDIA QUERIES (Mobile Viewports)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .header-container {
+        padding: 0.85rem 1rem;
     }
-    header h1 {
+
+    .mobile-menu-btn {
+        display: block;
+        /* Show menu toggle button */
+    }
+
+    nav.nav-links {
+        display: none;
+        /* Hide default navigation bar */
+        width: 100%;
+        border-top: none;
+        padding: 0;
+    }
+
+    nav.nav-links.active {
+        display: block;
+        /* Expand navigation on toggle */
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 0;
+        padding: 0.5rem 1rem 1rem 1rem;
+    }
+
+    nav a {
+        display: block;
+        padding: 0.65rem 0;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .hero-section {
+        padding: 2.5rem 1.25rem;
+    }
+
+    .hero-content h2 {
         font-size: 1.5rem;
     }
-    nav {
-        flex-direction: column;
-        align-items: stretch;
+
+    .card {
+        padding: 1.25rem;
     }
-    nav a {
+
+    .gallery-frame img {
+        height: 260px;
+    }
 }
-    }
-        text-align: center;
